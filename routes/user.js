@@ -39,14 +39,14 @@ exports.deleteUser = function(req, res){
   var existUser = new User();
   existUser.name = name;
 
-  User.delete({name:name},function(err, result){
+  User.remove({name:name},function(err, result){
     if(err){
       console.log('user unable to be deleted.');
       var message = 'Please try later after some time.';
       res.render('Home',{errorMessage:message});
     }
     else{
-      User.find({deleted:true},function(err,result){
+      User.find({},function(err,result){
         console.log('user deleted successfully.');
         console.log(result);
         res.render('Home',{users:result});

@@ -30,7 +30,7 @@ app.get('/login',route.login);
 app.get('/users', user.search);
 app.post('/authenticate',user.login);
 app.post('/delete', user.deleteUser);
-app.put('/update',user.updateUser);
+app.post('/update',user.updateUser);
 app.get('/logout',route.logout);
 //app will run on this port number on localhost.
 var port = process.env.PORT || 8080;
