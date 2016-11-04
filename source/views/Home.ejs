@@ -51,6 +51,15 @@
 <input type="text" class="form-control input-lg" name="name" placeholder="Full name" required> <br/>
 <button class="btn btn-danger"> delete </button>
 </form>
+<form class="form-group" method="post" action="/update" align="center">
+  <% if( typeof(errorMessage) !== 'undefined' ) {%>
+  <h5 align="center" class="margin-base-vertical"><code><%=errorMessage%></code></h5>
+  <%}%><br/>
+<input type="text" class="form-control input-lg" name="name" placeholder="Full name" required> <br/>
+<input type="number" class="form-control input-lg" name="age" placeholder="age" required> <br/>
+<input type="text" class="form-control input-lg" name="username" placeholder="username" required> <br/>
+<button class="btn btn-success" > update </button>
+</form>
 <br/><br/>
 <p><b><a href="/logout"> click here to logout.</a></b></p><br/>
 

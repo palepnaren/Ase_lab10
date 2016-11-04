@@ -12,25 +12,22 @@ exports.search = function(req,res){
 }
 exports.updateUser = function(req,res){
   var name = req.body.name;
-  User.findOneAndUpdate({name:name},function(err,updated){
+  var age = req.body.age;
+  var username = req.body.username;
+  User.update({name:name},{age:age,username:username},function(err, success){
     if(err){
-      console.log(err);
-      return res.status(500).send();
+      console.log("Update unsuccess.");
+      return res.status(400).send();
     }
     else{
-      if(!updated){
-        return res.status(404).send();
-
-      }
-      else{
-        console.log("updated successfully");
-        console.log(updated);
-        res.render('Home',{users:updated})
-        return res.status(200).send();
-      }
+      User.find({},function(err, result){
+      console.log("update sucess");
+      console.log(result);
+      res.render('Home',{users:result});
+    });
     }
-
   });
+
 
 }
 exports.deleteUser = function(req, res){
